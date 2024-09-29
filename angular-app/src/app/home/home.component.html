@@ -1,0 +1,8 @@
+@if(user) {
+  <h1>Hello,  {{user.name}} </h1>
+  <button (click)="logout()">Logout</button>
+}
+
+@if(errMessage) {
+  <span>{{errMessage}}</span>
+}
