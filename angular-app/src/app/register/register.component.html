@@ -8,6 +8,7 @@
       <span>Password</span>
       <input type="password" name="password" placeholder="Password" formControlName="password" />
       <button type="submit" [disabled]="registerForm.invalid">Register</button>
+      <a routerLink="/login">Login</a>
       <a routerLink="/forgot-password">Forgot Password?</a>
       @if(errMessage) {
       <span style="color: red;">{{errMessage}}</span>
