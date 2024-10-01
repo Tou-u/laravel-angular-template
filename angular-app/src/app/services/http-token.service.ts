@@ -5,7 +5,7 @@ import { inject, Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class HttpTokenService {
-  readonly baseUrl = 'http://localhost:80';
+  readonly baseUrl = 'https://laravel.rodrigort.com';
   http = inject(HttpClient);
 
   getCsrfToken() {

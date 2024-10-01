@@ -5,7 +5,7 @@ import { inject, Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class AuthService {
-  readonly baseUrl = 'http://localhost:80';
+  readonly baseUrl = 'https://laravel.rodrigort.com';
   http = inject(HttpClient);
 
   login(email: string, password: string) {
