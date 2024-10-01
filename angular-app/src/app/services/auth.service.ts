@@ -19,7 +19,7 @@ export class AuthService {
   register(name:string, email: string, password: string) {
     return this.http.post(
       `${this.baseUrl}/register`,
-      { name, email, password },
+      { name, email, password, password_confirmation: password },
       { withCredentials: true }
     );
   }
