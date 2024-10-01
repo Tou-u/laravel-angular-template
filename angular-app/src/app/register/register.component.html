@@ -1,0 +1,17 @@
+<main>
+  <form [formGroup]="registerForm" (ngSubmit)="login()">
+    <section style="display: flex; flex-direction: column; gap: 10px; max-width: 500px; margin: 0 auto;">
+      <span>Name</span>
+      <input type="text" name="name" placeholder="Name" formControlName="name" />
+      <span>Email</span>
+      <input type="email" name="email" placeholder="Email" formControlName="email" />
+      <span>Password</span>
+      <input type="password" name="password" placeholder="Password" formControlName="password" />
+      <button type="submit" [disabled]="registerForm.invalid">Register</button>
+      <a routerLink="/forgot-password">Forgot Password?</a>
+      @if(errMessage) {
+      <span style="color: red;">{{errMessage}}</span>
+      }
+    </section>
+  </form>
+</main>

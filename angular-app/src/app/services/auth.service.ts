@@ -16,6 +16,14 @@ export class AuthService {
     );
   }
 
+  register(name:string, email: string, password: string) {
+    return this.http.post(
+      `${this.baseUrl}/register`,
+      { name, email, password },
+      { withCredentials: true }
+    );
+  }
+
   logout() {
     return this.http.post(
       `${this.baseUrl}/logout`,
