@@ -1,11 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class HttpTokenService {
-  readonly baseUrl = 'https://laravel.rodrigort.com';
+  readonly baseUrl = environment.baseUrl
   http = inject(HttpClient);
 
   getCsrfToken() {
