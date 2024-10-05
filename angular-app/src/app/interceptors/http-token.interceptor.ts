@@ -5,6 +5,10 @@ import {
 import { inject } from '@angular/core';
 
 export const httpTokenInterceptor: HttpInterceptorFn = (req, next) => {
+  if (req.method === 'GET' || req.method === 'HEAD') {
+    return next(req);
+  }
+
   const tokenEx = inject(HttpXsrfTokenExtractor);
   const csrfTokenName = 'X-XSRF-TOKEN';
   const csrfToken = tokenEx.getToken();
@@ -12,10 +16,6 @@ export const httpTokenInterceptor: HttpInterceptorFn = (req, next) => {
   if (csrfToken && !req.headers.has(csrfTokenName)) {
     req = req.clone({
       headers: req.headers.set(csrfTokenName, csrfToken),
-    });
-
-    req = req.clone({
-      headers: req.headers.set('Referer', window.location.href),
     });
   }
 
